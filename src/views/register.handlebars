@@ -1,0 +1,32 @@
+<div class="main">
+  <div class=" col-5">
+    <div class="">
+      <h2 class="formTitle d-flex justify-content-center">Registro</h2>
+
+      <form id="from-container" action="/api/sessions/register" method="POST">
+        <label for="exampleInputEmail1">Correo Electrónico</label>
+        <input type="text" class="form-control" name="email" required><br>
+        <label for="exampleInputEmail1">Nombre:</label>
+        <input type="text" class="form-control" name="name" required><br>
+        <label for="exampleInputEmail1">Apellido:</label>
+        <input type="text" class="form-control" name="last_name" required><br>
+        <label for="exampleInputEmail1">Edad:</label>
+        <input type="number" class="form-control" name="age" required><br>
+        <label for="exampleInputEmail1">Nombre de Usuario:</label>
+        <input type="text" class="form-control" name="nickname" required><br>
+        <label for="exampleInputEmail1">Contraseña:</label>
+        <input type="password" class="form-control" name="password" required><br>
+        <label for="exampleInputEmail1">Avatar URL:</label>
+        <input type="text" class="form-control" name="avatar" required><br>
+        <input type="submit" class="btn btn-info" value="Registrarse"> 
+        <input type="submit" class="btn btn-info" onclick="location.href='http://localhost:8080/login';" value="Ir a ingresar"> 
+
+      </form>
+            
+    </div>    
+        
+  </div>
+    
+
+       
+</div>
