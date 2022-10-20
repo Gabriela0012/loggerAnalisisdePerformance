@@ -1,4 +1,4 @@
-# Desafio Inicio de Sesión
+# Desafio Logger y análisis de performance
 ## Dependencias
 >>connect-mongo\
 >>bcrypt\
@@ -11,6 +11,7 @@
 >>knex\
 >>passport\
 >>passport-local\
+>>winston\
 >>moment\
 >>sqlite3
 ## Levantar npm
