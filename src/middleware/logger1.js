@@ -3,7 +3,6 @@ import {format, createLogger, transports} from 'winston';
 
 const {timestamp,combine, printf} = format
 
-
 const myFormat = printf(({level,message, timestamp, stack})=>{
   return `${timestamp} ${level}: ${stack || message}`;
 });

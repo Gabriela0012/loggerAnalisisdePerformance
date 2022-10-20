@@ -1,20 +1,24 @@
-// import morgan from 'morgan';
-// import logger from './logger1.js'
+import pino from "pino"
+import __dirname from "../utils.js"
+
+const streams = [
+  {level:'info', stream:process.stdout},
+  {level:'warn', stream:pino.destination(__dirname+'/logFiles/warn.log')},
+  {level:'error', stream:pino.destination(__dirname+'/logFiles/error.log')},
+]
+const logger = pino({
+  transport: {
+    target: 'pino-pretty', 
+    options: {
+      translateTime: 'SYS:dd-mm-yyyy HH:MM:ss',
+      ignore: 'pid, hostname'
+    }
+  }
+},pino.multistream(streams))
 
 
-// const morganMiddleware = morgan(
-//   ':method :url :status :res[content-length] - :response-time ms',
-//   {
-//       stream: {
-//           write: (message) => logger.http(message.trim()),
-//       },
-//   }
-// );
 
 
 
 
-
-
-
-// export default morganMiddleware;
+export default logger;

@@ -17,9 +17,9 @@ const initializePassport = () => {
   
       if(!email||!name||!last_name||!age||!nickname||!avatar||!password) return done(null,false,{message:'Incomplete values'})
    
-      logger.info(req.body.email);
+      logger.info(`Email de persona registrada ${req.method} ${req.url} ${req.body.email}`);
       const user = await userService.getByEmail(req.body.email)
-      logger.info(user)
+      logger.info(user, `${req.method} ,${req.url} `)
     
 
       if(user) return done(null,false,{message:'User already exists'})
@@ -44,7 +44,7 @@ const initializePassport = () => {
 
   passport.use('login',new LocalStrategy({usernameField:'email'},async (email,password,done) => {
    
-    logger.info(email)
+    logger.info(`Email de persona logeada  ${email} `)
   
 		if (!email || !password) return done(null,false,{message:'Incomplete values'})
 	
