@@ -19,7 +19,6 @@
 
 
 # Análisis de Performance
-## COnsigna
 # Ruta info, ruta randoms en modo FORK
 ![image](https://github.com/Gabriela0012/loggerAnalisisdePerformance/blob/main/src/public/img/modo_fork.png)
 # Perfilamiento del servidor realizando el test con --prof
