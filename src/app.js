@@ -17,7 +17,7 @@ import passport from 'passport'
 
 
 const app = express()
-
+const PORT = process.env.PORT || 8080
 const productService = new productContainerKnex();
 const chatService = new chatContainerKnex();
 
@@ -28,8 +28,8 @@ initializePassport();
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
-const server = app.listen(8080, () => {
-  console.log('listening on 8080 port \n')
+const server = app.listen(PORT, () => {
+  console.log(`listening on PORT ${PORT}`)
 })
 
 
