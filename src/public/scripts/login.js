@@ -8,7 +8,7 @@ registre.addEventListener('click', (e) => {
 	
 	
 
-	location.href='https://loggeranalisisdeperformance-production.up.railway.app'
+	location.href='/'
 
 })
 
