@@ -12,12 +12,3 @@ registre.addEventListener('click', (e) => {
 
 })
 
-ingresar.addEventListener('click', (e) => {
-  e.preventDefault()
-
-	
-	
-	location.href = 'welcome'
-
-
-})
