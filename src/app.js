@@ -41,8 +41,7 @@ app.set('view engine', 'handlebars')
 app.use(express.static(__dirname + '/public'))
 app.use(session({
   store:MongoStore.create({
-    mongoUrl:`mongodb+srv://${MONGO_USER}:135632@ecommerce1.dxk6fgr.mongodb.net/BaseSessions?retryWrites=true&w=majority`,
-    ttl:3600
+    mongoUrl:'mongodb+srv://gabriela:135632@ecommerce1.dxk6fgr.mongodb.net/BaseSessions?retryWrites=true&w=majority'
   }),
   secret:'desafio login por formulario',
   resave:false,
@@ -51,7 +50,7 @@ app.use(session({
     maxAge: 30000
   }
 }))
-console.log(config.mongo.MONGO_URL)
+
 app.use(passport.initialize());
 app.use(passport.session());
 
