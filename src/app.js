@@ -14,10 +14,10 @@ import sessionsRouter from './routes/session.router.js'
 import currentRouter from './routes/current.router.js'
 import initializePassport from './config/passport.config.js'
 import passport from 'passport'
-
+import config from './config/config.js'
 
 const app = express()
-const PORT = process.env.PORT || 8080
+const PORT = config.app.PORT
 const productService = new productContainerKnex();
 const chatService = new chatContainerKnex();
 
@@ -41,7 +41,7 @@ app.set('view engine', 'handlebars')
 app.use(express.static(__dirname + '/public'))
 app.use(session({
   store:MongoStore.create({
-    mongoUrl:`mongodb+srv://gabriela:135632@ecommerce1.dxk6fgr.mongodb.net/BaseSessions?retryWrites=true&w=majority`,
+    mongoUrl:config.mongo.MONGO_URL,
     ttl:3600
   }),
   secret:'desafio login por formulario',
@@ -51,6 +51,7 @@ app.use(session({
     maxAge: 30000
   }
 }))
+console.log(config.mongo.MONGO_URL)
 app.use(passport.initialize());
 app.use(passport.session());
 
