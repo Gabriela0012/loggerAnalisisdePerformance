@@ -41,7 +41,7 @@ app.set('view engine', 'handlebars')
 app.use(express.static(__dirname + '/public'))
 app.use(session({
   store:MongoStore.create({
-    mongoUrl:config.mongo.MONGO_URL,
+    mongoUrl:`mongodb+srv://${MONGO_USER}:135632@ecommerce1.dxk6fgr.mongodb.net/BaseSessions?retryWrites=true&w=majority`,
     ttl:3600
   }),
   secret:'desafio login por formulario',

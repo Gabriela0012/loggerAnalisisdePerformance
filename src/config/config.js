@@ -7,7 +7,9 @@ export default{
   
   },
   mongo:{
-    MONGO_URL:process.env.MONGO_URL
+    USER: process.env.MONGO_USER,
+    PWD: process.env.MONGO_PWD,
+    DATABASE: process.env.MONGO_DB,
 
   }
   
