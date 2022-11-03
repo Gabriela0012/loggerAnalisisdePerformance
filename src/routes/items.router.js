@@ -13,16 +13,11 @@ const router = Router()
 const itemService = new Item();
 
 //items
-router.get('/',async (req, res) => {
-  try {
-    const itemsDB = await Item.find();
-    console.log(itemsDB);
-    res.json(itemsDB);
 
-  } catch (error) {
-    res.json({ error: error})
-  }
 
+router.get('/',async(req, res)=>{
+  let itemsDB = await itemService.getAll();
+  res.json(itemsDB);
 })
 
 //item

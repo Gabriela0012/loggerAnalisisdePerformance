@@ -1,111 +1,60 @@
-<h1 class="d-flex justify-content-center">Productos</h1>
-<div class="row m-3">
-  {{#each products}}
-    <div class=" col-12 col-md-4 mb-3">
-      <div class="card mt-5" style="width: 15rem;" id="formCart" >
-        <img id="idform" class="card-img-top" style="height: 17rem;" src={{this.thumbnail}}>
-        <div class="card-body">
-          <h5 class="card-title">
-            {{this.name}}
-          </h5>
-          <p class="card-text">$ {{this.price}}</p>
-          
-          
-          <form action="api/carts/636130fda2f01c3af773d28b/products/{{this._id}}" method="post">
-            <label for="">cantidad:</label>
-            <input type="number" name="quantity">
-          <button id= "btnID" class="btn btn-dark" >
-            Agregar a Carrito
-          </button>
-          </form>
-         
-        </div>
-      </div>
-    </div>
-  
-  {{/each}}
-  
-</div>
-
-
-
- {{!-- <div class="row">
+<div class="row">
           <!-- productos -->
           <h2 class="col_12">PRODUCTOS</h2>
         </div>
-        <template id="template-productos">
-          <div class="col-12 col-md-4 mb-3">
-              <div class="card mt-5" style="width: 15rem;" >
-                  <img src="" class="card-img-top" style="height: 17rem;" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">
-                        Jeans
-                    </h5>
-                    <p class="card-text">$ <span>5000</span></p>
-                    <button class="btn btn-dark" action="api/carts/products" method="post">
-                        Comprar
-                    </button>
-                  </div>
-                </div>
+        <section class="store">
+          <div class="container">
+            <div class="items">
+              <div class="row">
+                
+
+              </div>
+            </div>
           </div>
-        </template>
-        <div class="container">
-          <div class="row" id="contenedor-productos"></div>
-        </div>
-        <template  id="template-footer">
-          <th scope="row" colspan="2">TOTAL PRODUCTOS</th>
-          <td>10</td>
-          <td>
-              <button class="btn btn-danger btn-sm p-3" id="vaciar-carrito">
-                VACIAR TODO
-              </button>
-              <button class="btn btn-primary btn-sm p-3" id="comprar_carrito">
-                COMPRAR
-            </button>
-    
-          </td>
-          <td class="font-weight-bold">$ <span>5000</span></td>
-        </template>
-        <template id="template-carrito">
-          <tr class="elegido">
-            <th  scope="row">id</th>
-            <td>Jeans</td>
-            <td>1</td>
-            <td>
-                <button class="btn btn-info btn-sm">
-                    +
-                </button>
-                <button class="btn btn-danger btn-sm">
-                    -
-                </button>
-            </td>
-            <td>$ <span>500</span></td>
-          </tr>
-        </template>
-        <div class="my-5">
-          <h4 class="p-3">CARRITO DE COMPRAS</h4>
-          <table class="table">
-            <thead>
-              <tr class = "parametros">
-                <th scope="col">CÓDIGO</th>
-                <th scope="col">PRODUCTO</th>
-                <th scope="col">CANTIDAD</th>
-                <th scope="col">ACCIÓN</th>
-                <th scope="col">TOTAL</th>
-              </tr>
-            </thead>
-            <tbody id="items"></tbody>
-            <tfoot>
-              <tr class = "parametros" id="footer-carrito">
-                  <th scope="row" colspan="5">¡Carrito vacío!</th>
-              </tr>
-            </tfoot>
-          </table>
-        </div>
+        </section>
+
+        <!-- section cart -->
+        <section class="shopping-cart">
+          <div class="container">
+            <h1 class="text-center">Carrito</h1>
+            <hr>
+            <div class="row">
+              <div class="col-6">
+                <div class="shopping-cart-header">
+                  <h6>producto</h6>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="shopping-cart-header">
+                  <h6 class="text-truncate">precio</h6>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="shopping-cart-header">
+                  <h6>cantidad</h6>
+                </div>
+              </div>
+            </div>
+            <!-- start shopping cart items -->
+            <div class="shopping-cart-items shoppingCartItemsContainer">
+              
+            </div>
+
+            <!-- start Total -->
+            <div class="row">
+              <div class="col-12 d-flex justify-content-between aling-items-between">
+                <div class="shopping-cart-total d-flex aling-items-center">
+                  <p class="mb-2 p-2">total</p>
+                  <p class="ml-4 p-2 shoppingCartTotal"> $0</p>
+                </div>
+                <button class="btn btn-success ml-auto comprarButton" data-target="#comprar Modal">comprar</button>
+              </div>
+            </div>
+          </div>
+        </section>
+        
 
 
 
-
-<script src="./scripts/cart.js"></script> --}}
-
-{{!-- <script src="./scripts/addToCart.js"></script>  --}}
+ <script src="./scripts/store.js"></script>
+ <script src="./scripts/main.js"></script>

@@ -1,14 +1,4 @@
-<div class="d-flex flex-row justify-content-around align-items-center bienvenido">
-  
-   <h1>¡Hola {{user.name}}!</h1>
-  <input type="submit" class="btn btn-warning" onclick="location.href='logout';" value="Cerrar Sesión"> 
-  <a href="/cart/checout">
-  Mi carrito (
-    
-  )
-  {{!-- <img src="/img/carrito.png" style="height: 5rem" alt=""> --}}
-  </a>
-</div> 
+{{> navbar}}
 {{> productList}}
 
 
