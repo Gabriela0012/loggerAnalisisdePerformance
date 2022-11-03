@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 
 export default class MongoContainer{
   constructor(collection,schema){
-    mongoose.connect('mongodb+srv://gabriela:135632@ecommerce1.dxk6fgr.mongodb.net/BaseSessions?retryWrites=true&w=majority', err =>{
+    mongoose.connect('mongodb+srv://gabriela:135632@ecommerce1.dxk6fgr.mongodb.net/test?retryWrites=true&w=majority', err =>{
     if(err) console.log(err);
     else console.log('Base conectada a Atlas');
     })

@@ -12,6 +12,11 @@ import initializePassport from './config/passport.config.js'
 import passport from 'passport'
 import config from './config/config.js'
 
+import itemsRouter from './routes/items.router.js'
+import imgRouter from './routes/img.router.js'
+import ordersRouter from './routes/orders.router.js'
+import sendToEmailRouter from './routes/sendToEmail.js'
+
 const app = express()
 const PORT = config.app.PORT
 
@@ -58,3 +63,7 @@ app.use('/api/sessions',sessionsRouter);
 app.use('/api/current',currentRouter);
 app.use('/api/products',productRouter);
 app.use('/api/carts',cartRouter)
+app.use('/order', ordersRouter);
+app.use('/checkout', sendToEmailRouter);
+app.use('/items', itemsRouter);
+app.use('/img', imgRouter);
