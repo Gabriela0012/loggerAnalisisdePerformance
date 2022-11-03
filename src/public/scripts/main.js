@@ -27,7 +27,7 @@ function createDomElement(item){
   <div class="col-12 col-md-6">
     <div class="item shadow mb-4" style="width: 15rem;" data-id=${item._id}>
       <h3 class="item-name">${item.name}</h3>
-      <img class="item-thumbnail" src="${thumbnailPath}${item.thumbnail}" style="height: 17rem;" alt="">
+      <img class="item-thumbnail" src="${item.thumbnail}" style="height: 17rem;" alt="">
       
       <div class="item-details">
         <h4 class="item-price">$ ${item.price}</h4>
