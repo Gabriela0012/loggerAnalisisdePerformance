@@ -1,15 +1,19 @@
+import dotenv from "dotenv";
+
+dotenv.config();
+
+
 export default{
   app: {
     MODE:process.env.NODE || 'PROD',
     PORT: process.env.PORT || '8080',
+    DEBUG: process.env.DEBUG || false,
     DOMAIN: process.env.DOMAIN 
     
   
   },
   mongo:{
-    USER: process.env.MONGO_USER,
-    PWD: process.env.MONGO_PWD,
-    DATABASE: process.env.MONGO_DB,
+    MONGO_URL:process.env.MONGO_URL
 
   }
   
