@@ -2,7 +2,7 @@ import passport from "passport";
 import local from "passport-local";
 import userDao from '../dao/MongoDAO/Users.js'
 import { createHash, isValidPassword } from '../utils.js'
-import logger from '../middleware/logger1.js'
+import logger from '../middleware/logger.js'
 
 const LocalStrategy = local.Strategy;
 const userService= new userDao()

@@ -1,13 +1,9 @@
 import express from 'express'
 import handlebars from 'express-handlebars'
 import __dirname from './utils.js'
-import { Server } from 'socket.io'
 import viewsRouter from './routes/views.router.js'
-import productContainerKnex from './container/productContainerKnex.js'
-import chatContainerKnex from './dao/MongoDAO/Messages.js'
-import productTestRouter from './routes/productTest.router.js'
-import messageRouter from './routes/message.router.js'
-import messageNormalizerRouter from './routes/messagesNormalize.router.js'
+import productRouter from './routes/products.router.js'
+import cartRouter from './routes/carts.router.js'
 import session from 'express-session'
 import MongoStore from 'connect-mongo'
 import sessionsRouter from './routes/session.router.js'
@@ -18,8 +14,7 @@ import config from './config/config.js'
 
 const app = express()
 const PORT = config.app.PORT
-const productService = new productContainerKnex();
-const chatService = new chatContainerKnex();
+
 
 
 
@@ -56,9 +51,9 @@ app.use(passport.session());
 
 
 app.use('/', viewsRouter)
-app.use('/api/products-test',productTestRouter);
-app.use('/api/messages',messageRouter);
-app.use('/api/message',messageNormalizerRouter);
+
+
 app.use('/api/sessions',sessionsRouter);
 app.use('/api/current',currentRouter);
-
+app.use('/api/products',productRouter);
+app.use('/api/carts',cartRouter)

@@ -1,13 +1,15 @@
 import { Router } from "express";
 import usersDao from '../dao/MongoDAO/Users.js';
+import cartsDAO from '../dao/MongoDAO/carts.js'
 import passport from 'passport';
-import logger from '../middleware/logger1.js'
+import logger from '../middleware/logger.js'
 
 
 
 
 const router = Router()
 const userService = new usersDao()
+const cartsService = new cartsDAO();
 
 
 
@@ -23,21 +25,27 @@ router.post('/register',passport.authenticate('register',{
 })
 
 
-router.post('/login',passport.authenticate('login',{
-  failureRedirect: '/loginfail'})
-  , async(req,res)=>{
+// router.post('/login',passport.authenticate('login',{
+//   failureRedirect: '/loginfail'})
+//   , async(req,res)=>{
+   
   
-  req.session.user = {
-    name: req.user.name,
-    email: req.user.email,
-    id: req.user._id,
-    role:'user'
-  }
-  logger.info('usuario logeado')
-  res.redirect('/welcome')
+//   req.session.user = {
+//     name: req.user.name,
+//     email: req.user.email,
+//     id: req.user._id,
+//     role:'user'
+//   }
+//   logger.info('usuario logeado')
+
+
+//   res.redirect('/current')
   
   
-})
+// })
+
+
+
 
 router.get('/logout', (req, res) => {
   console.log('hola')

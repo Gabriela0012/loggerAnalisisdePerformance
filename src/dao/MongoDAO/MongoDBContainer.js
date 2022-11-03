@@ -12,7 +12,7 @@ export default class MongoContainer{
   }
 
   getAll = async ()=>{
-    let results = await this.model.find();
+    let results = await this.model.find().lean();
     return results;
   }
   save = async (document)=>{

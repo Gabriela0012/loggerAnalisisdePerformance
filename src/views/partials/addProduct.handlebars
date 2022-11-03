@@ -1,0 +1,30 @@
+<div class="main">
+  <div class=" col-5 ">
+    <div class="">
+      <h2 class="formTitle d-flex justify-content-center">Agregar Productos</h2>
+
+      <form id="from-container" action="/api/products/add" method="POST">
+        <label for="exampleInputEmail1">Nombre del producto:</label>
+        <input type="text" class="form-control" name="name" required><br>
+        <label for="exampleInputEmail1">Precio del producto:</label>
+        <input type="text" class="form-control" name="price" required><br>
+        <label for="exampleInputEmail1">Imagen:</label>
+        <input type="text" class="form-control" name="thumbnail" required><br>
+        <label for="exampleInputEmail1">Descripción del producto:</label>
+        <input type="text" class="form-control" name="description" required><br>
+        <label for="exampleInputEmail1">Código:</label>
+        <input type="text" class="form-control" name="code" required><br>
+        <label for="exampleInputEmail1">Cantidad:</label>
+        <input type="text" class="form-control" name="stock" required><br>
+        <input type="submit" class="btn btn-info" value="Agregar"> 
+        <input type="submit" class="btn btn-info" onclick="location.href='/';" value="Ir a inicio"> 
+
+      </form>
+            
+    </div>    
+        
+  </div>
+    
+
+       
+</div>

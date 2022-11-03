@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import moment from 'moment'
 import MongoDBContainer from './MongoDBContainer.js';
-import faker from 'faker'
+
 
 const collection = 'products';
 

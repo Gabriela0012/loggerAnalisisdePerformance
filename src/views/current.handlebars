@@ -1,15 +1,14 @@
-<div class="main">
-  <div class=" col-5">
-    <h2>bienvenido {{req.session.user}}</h2>
- 
-    <button id="btnSubmit" class="btn btn-info">Cerrar sesion</button>
-      
+<div class="d-flex flex-row justify-content-around align-items-center bienvenido">
   
-        
-  </div>
+   <h1>¡Hola {{user.name}}!</h1>
+  <input type="submit" class="btn btn-warning" onclick="location.href='logout';" value="Cerrar Sesión"> 
+  <a href="/cart/checout">
+  Mi carrito (
     
-
-       
+  )
+  {{!-- <img src="/img/carrito.png" style="height: 5rem" alt=""> --}}
+  </a>
 </div> 
+{{> productList}}
 
-<script src="./scripts/current.js"></script>
+

@@ -1,8 +1,9 @@
 import { Router } from "express";
-import services from '../dao/index.js';
+import productsDAO from '../dao/MongoDAO/Products.js'
 
 
 const router = Router();
+const productsService = new productsDAO();
 const admin = true;
 
 async function validateID(req,res,next){
@@ -13,7 +14,7 @@ async function validateID(req,res,next){
       console.log(error)
       return res.status(400).send({status:'error', error:'Invalid id'})
   }
-  req.params.product = await services.productsService.getById(req.params.pid)
+  req.params.product = await productsService.getById(req.params.pid)
   console.log(req.params.product)
   if(req.params.product == null) return res.status(404).send({status:'error', error:'Product not found'})
   next()
@@ -21,15 +22,16 @@ async function validateID(req,res,next){
 
 
 router.get('/',async(req, res)=>{
-  let products = await services.productsService.getAll();
+  let products = await productsService.getAll();
   res.send(products);
+  console.log(products.name)
   console.log(products);
 })
 // // para ver los productos por id en la url agregue "api/products/'y el numero que desee'
 router.get('/:pid',validateID, async(req, res)=>{
   try {
 
-    let product = await services.productsService.getById(req.params.pid)
+    let product = await productsService.getById(req.params.pid)
     if(product === null) return res.status(404).send({status:'error', error:'Product not found'})
     res.send({product})
     
@@ -39,7 +41,7 @@ router.get('/:pid',validateID, async(req, res)=>{
 }
 })
 
-router.post('/',async(req, res)=>{
+router.post('/add',async(req, res)=>{
   if(admin===false){
     return res.status(404).send({status:'error', description: 'ruta/api/products/ no autorizada'})
 
@@ -47,7 +49,7 @@ router.post('/',async(req, res)=>{
   else{
     let product = req.body
   console.log(product)
-  let newArray = await services.productsService.save(product);
+  let newArray = await productsService.save(product);
   res.json(newArray);
 
   }
@@ -60,7 +62,7 @@ router.put('/:pid',validateID, async (req,res)=>{
     return res.status(404).send({status:'error', description: 'ruta/api/products/ no autorizada'})
 
   }else{
-  await services.productsService.update(req.params.pid, body)
+  await productsService.update(req.params.pid, body)
   res.send(`producto con id: ${req.params.pid} actualizado`)}
 })
 
@@ -70,7 +72,7 @@ router.delete('/:pid',validateID, async (req,res)=>{
 
   }
   else{
-  await services.productsService.deleteById(req.params.pid)
+  await productsService.deleteById(req.params.pid)
   res.send(`Producto con id: ${req.params.pid} eliminado de productos`)}
 })
 

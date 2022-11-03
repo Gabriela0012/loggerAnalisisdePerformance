@@ -1,17 +1,36 @@
 import {Router} from 'express'
-// import logger from '../middleware/logger1.js'
 import logger from '../middleware/logger.js'
+import productDAO from '../dao/MongoDAO/Products.js'
+import cartDAO from '../dao/MongoDAO/carts.js'
+
+
 
 const router = Router()
+const productsService = new productDAO();
+const cartsService = new cartDAO();
 
 router.get('/', (req,res)=>{
     res.render('register')
 })
 
-router.get('/chat', (req,res)=>{
-    
-    res.render('chat')
+router.get('/welcome', (req,res)=>{
+    res.render('welcome')
 })
+
+
+router.get('/current', async (req,res)=>{
+    if(!req.session.user) return res.redirect('/login');
+    let products = await productsService.getAll()
+    res.render('current', {products, user:req.session.user})
+
+})
+router.get('/cart', async (req,res)=>{
+    if(!req.session.user) return res.redirect('/login');
+    let cart = await cartsService.getAll()
+    res.render('current', {cart, user:req.session.user})
+})
+
+
 router.get('/login', (req,res)=>{
     res.render('login')
 })

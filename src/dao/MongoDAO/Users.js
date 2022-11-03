@@ -31,6 +31,10 @@ const userSchema = mongoose.Schema({
       ref: 'Messages',
     }
   ],
+  carts: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'cart',
+  }],
   password: {
     type: String,
     required:true

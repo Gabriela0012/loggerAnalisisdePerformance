@@ -7,10 +7,10 @@ const collection = 'carts';
 const products = new productService
 
 const cartsSchema = mongoose.Schema({
-  title:{
-    type: 'string',
-    required:true
-  },
+  buyer: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'user',
+  }],
   timestamp:{
     type: String,
     default: ()=>moment().format('dddd, MMMM Do YYYY, h:mm:ss a'),
