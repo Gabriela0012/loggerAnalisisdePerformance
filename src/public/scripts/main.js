@@ -7,7 +7,7 @@ window.onload = getData();
 const items = document.querySelector('.items');
 
 function getData() {
-  fetch(`${serverUrl}${itemsPath}`)
+  fetch('/items')
   .then(res => res.json())
   .then((data) =>printData(data));
 }

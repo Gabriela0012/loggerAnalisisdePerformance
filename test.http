@@ -1,0 +1,56 @@
+GET http://localhost:8080/
+
+
+###
+
+post http://localhost:8080/items
+Content-type: application/json
+
+{
+  "price": 2300,
+  "name": "Jeans mon",
+  "thumbnail": "jeans_mon.jpg"
+}
+
+###
+
+get http://localhost:8080/items
+
+###
+
+get http://localhost:8080/items/item
+Content-type: application/json
+
+{
+  "itemId": "63638109da3c30581bda9ce1"
+
+}
+
+###
+
+
+post http://localhost:8080/checkout
+Content-type: application/json
+
+[
+  {
+  "id": "63638109da3c30581bda9ce1",
+  "qty": 2
+  }
+]
+
+###
+
+
+post http://localhost:8080/order
+Content-type: application/json
+
+{
+  "email": "test@example.com",
+  "items":[
+            {
+            "id": "63638109da3c30581bda9ce1",
+            "qty": 2
+            }
+          ] 
+}
