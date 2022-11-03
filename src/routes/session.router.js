@@ -25,24 +25,24 @@ router.post('/register',passport.authenticate('register',{
 })
 
 
-// router.post('/login',passport.authenticate('login',{
-//   failureRedirect: '/loginfail'})
-//   , async(req,res)=>{
+router.post('/login',passport.authenticate('login',{
+  failureRedirect: '/loginfail'})
+  , async(req,res)=>{
    
   
-//   req.session.user = {
-//     name: req.user.name,
-//     email: req.user.email,
-//     id: req.user._id,
-//     role:'user'
-//   }
-//   logger.info('usuario logeado')
+  req.session.user = {
+    name: req.user.name,
+    email: req.user.email,
+    id: req.user._id,
+    role:'user'
+  }
+  logger.info('usuario logeado')
 
 
-//   res.redirect('/current')
+  res.redirect('/current')
   
   
-// })
+})
 
 
 
