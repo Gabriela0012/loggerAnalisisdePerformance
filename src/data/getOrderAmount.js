@@ -1,5 +1,6 @@
-import getItemById from './getItemById.js'
+import itemDAO from '../dao/MongoDAO/items.js'
 
+const itemService = new itemDAO()
 
 
 export default async function getOrderAmount(items){
@@ -7,7 +8,7 @@ export default async function getOrderAmount(items){
 
   for(let index = 0; index < items.length; index++){
     const item = items[index];
-    const itemDB = await getItemById(item.id)
+    const itemDB = await itemService.getItemById(item.id)
 
 
     let operation = itemDB.price * item.qty;

@@ -31,10 +31,10 @@ const userSchema = mongoose.Schema({
       ref: 'Messages',
     }
   ],
-  carts: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'cart',
-  }],
+  cart: {
+    type: mongoose.SchemaTypes.ObjectId,
+    ref: 'Carts',
+  },
   password: {
     type: String,
     required:true

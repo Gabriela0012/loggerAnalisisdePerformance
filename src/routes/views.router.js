@@ -1,7 +1,7 @@
 import {Router} from 'express'
 import logger from '../middleware/logger.js'
 import productDAO from '../dao/MongoDAO/Products.js'
-import cartDAO from '../dao/MongoDAO/carts.js'
+import cartDAO from '../dao/MongoDAO/Carts.js'
 
 
 
@@ -61,6 +61,12 @@ router.get('/logout', (req,res)=>{
       
 
 })
+
+router.get('/pedido', (req,res)=>{
+    res.render('order')
+})
+
+
 
 
 export default router

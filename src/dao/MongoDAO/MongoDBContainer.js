@@ -1,10 +1,10 @@
 import mongoose from 'mongoose';
-
+import config from '../../config/config.js'
 
 
 export default class MongoContainer{
   constructor(collection,schema){
-    mongoose.connect('mongodb+srv://gabriela:135632@ecommerce1.dxk6fgr.mongodb.net/test?retryWrites=true&w=majority', err =>{
+    mongoose.connect(config.mongo.MONGO_URL, err =>{
     if(err) console.log(err);
     else console.log('Base conectada a Atlas');
     })

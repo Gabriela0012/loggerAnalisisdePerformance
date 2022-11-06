@@ -42,7 +42,7 @@ app.use(express.static(__dirname + '/public'))
 app.use(session({
   store:MongoStore.create({
     mongoUrl:config.mongo.MONGO_URL,
-    ttl:3600
+    ttl:36000
   }),
   secret:'desafio login por formulario',
   resave:false,

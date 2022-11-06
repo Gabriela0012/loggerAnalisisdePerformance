@@ -1,6 +1,6 @@
 import { Router } from "express";
 import usersDao from '../dao/MongoDAO/Users.js';
-import cartsDAO from '../dao/MongoDAO/carts.js'
+import cartsDAO from '../dao/MongoDAO/Carts.js'
 import passport from 'passport';
 import logger from '../middleware/logger.js'
 
@@ -28,12 +28,14 @@ router.post('/register',passport.authenticate('register',{
 router.post('/login',passport.authenticate('login',{
   failureRedirect: '/loginfail'})
   , async(req,res)=>{
-   
-  
+    
+
+     
   req.session.user = {
     name: req.user.name,
     email: req.user.email,
     id: req.user._id,
+    cart:req.user.cart,
     role:'user'
   }
   logger.info('usuario logeado')

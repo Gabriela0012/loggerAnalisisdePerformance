@@ -33,11 +33,7 @@ export default class Order extends MongoDBContainer {
     this.pepe = 0
   }
 
-  // creacion del carrito
-  saveItem = async (document)=>{
-    let results = await this.model.create(document);
-    return results;
-  }
+
 
   getOrderAmount = async(items) =>{
     let amount = 0;

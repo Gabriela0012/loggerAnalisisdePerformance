@@ -1,11 +1,14 @@
 import passport from "passport";
 import local from "passport-local";
 import userDao from '../dao/MongoDAO/Users.js'
+import cartDao from '../dao/MongoDAO/Carts.js'
 import { createHash, isValidPassword } from '../utils.js'
 import logger from '../middleware/logger.js'
+import config from '../config/config.js'
 
 const LocalStrategy = local.Strategy;
 const userService= new userDao()
+const cartService= new cartDao()
 
 
 const initializePassport = () => {
@@ -23,6 +26,7 @@ const initializePassport = () => {
     
 
       if(user) return done(null,false,{message:'User already exists'})
+      const cart = await cartService.saveCart();
       
 
       const newUser={
@@ -32,7 +36,8 @@ const initializePassport = () => {
         age,
         nickname,
         avatar,
-        password:createHash(password)
+        password:createHash(password),
+        cart:cart._id
       }
       let result = await userService.save(newUser);
       return done(null,result)
@@ -46,7 +51,22 @@ const initializePassport = () => {
    
     logger.info(`Email de persona logeada  ${email} `)
   
-		if (!email || !password) return done(null,false,{message:'Incomplete values'})
+		if(!email || !password) return done(null,false,{message:'Incomplete values'})
+    
+    //antes 1:35
+    if(email===config.session.ADMIN_EMAIL&&password===config.session.ADMIN_PASSWORD){
+    
+      passport.serializeUser((email, done) => {
+        done(null,email)
+      })
+      passport.deserializeUser((password, done) => {
+        let result =  config.session.ADMIN_PASSWORD(password)
+        return done(null,result)
+    
+      })
+      
+   
+    }
 	
 		let user = await userService.getByEmail(email)
     logger.info(user)
