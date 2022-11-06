@@ -7,7 +7,12 @@ document.addEventListener('click', event => {
 
 const comprarButton = document.querySelector('.comprarButton');
 comprarButton.addEventListener('click',comprarButtonClicked);
+const modal = document.querySelector('.container-modal')
+const closeModal = document.querySelector('.btn-modal')
+closeModal.addEventListener('click',()=>{
+  modal.classList.remove('modal--show')
 
+})
 const shoppingCartItemsContainer = document.querySelector('.shoppingCartItemsContainer');
 
 function addToCartClicked(event) {
@@ -108,15 +113,15 @@ function quantityChanged(event) {
 function comprarButtonClicked(){
   const shoppingCartItems = getItemsInShoppingCart()
   addToLocalStorage('shoppingCart', shoppingCartItems)
+  modal.classList.add('modal--show')
 
-  Swal.fire({
-    title: '¡Se realizó su pedido!',
-    text: 'En estos dias nos comunicaremos con Ud.',
-    icon: 'success',
-    confirmButtonText: 'OK'
-  })
- 
+
+
   updateShoppingCartTotal();
+  
+  
+
+  
   
 }
 
@@ -143,3 +148,9 @@ function addToLocalStorage(key, items){
   localStorage.setItem(key, JSON.stringify(items))
 
 }
+
+
+
+
+
+
