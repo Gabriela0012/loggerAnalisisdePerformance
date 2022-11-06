@@ -29,7 +29,15 @@ function saveOrderInDatabase(){
   updateShoppingCartTotal();
   modal.classList.remove('modal--show')
 
- 
+  Swal.fire({
+    title: '¡Muchas Gracias!, Se enviará un mail con su número de pedido',
+    showClass: {
+      popup: 'animate__animated animate__fadeInDown'
+    },
+    hideClass: {
+      popup: 'animate__animated animate__fadeOutUp'
+    }
+  })
   
 
 }
